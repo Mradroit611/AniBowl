@@ -1,0 +1,38 @@
+.background-image {
+  background-image: url('photo.jpg'); // Ensure the path is correct
+  background-size: cover; // Cover the full area while keeping the aspect ratio
+  background-position: center; // Center the image
+  background-repeat: no-repeat; // Prevent repeating the image
+  width: 100%; // Use 100% to avoid overflow
+  min-height: 100vh; // Full viewport height
+  display: block; // Ensure it takes up space
+  overflow: hidden; // Hide any overflow
+
+  // Mobile responsiveness
+  @media (max-width: 768px) {
+      min-height: 60vh; // Adjust min-height for tablets/smaller screens
+  }
+
+  @media (max-width: 480px) {
+      min-height: 40vh; // Further adjust for mobile devices
+  }
+}
+
+.heading {
+  text-align: center; // Center the heading text
+  margin: 1rem 0; // Margin around the heading
+  font-size: 2.5rem; // Adjust font size as needed
+  color: #000; // Text color
+  position: relative; // Positioning context
+  z-index: 1; // Ensure heading appears above background
+
+  // Mobile responsiveness
+  @media (max-width: 768px) {
+      font-size: 1.8rem; // Adjust font size for smaller screens
+      margin: 0.5rem 0; // Reduce margin
+  }
+
+  @media (max-width: 480px) {
+      font-size: 1.5rem; // Further adjust font size for mobile
+  }
+}

@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<nav>
+  <!-- Icon Section -->
+  <div class="icon-section">
+    <div class="social-icons">
+      <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+    <div class="contact-info">
+      <span>Contact: +91 986-898-0710</span>
+      <span>Email: anibowl&#64;gmail.com</span>
+    </div>
+  </div>
+
+  <!-- Logo Section -->
+  <div class="logo-container">
+    <h2><a routerLink="/"><img src="logo.png" alt="AniBowl Logo" class="logo" /></a></h2>
+  </div>
+
+  <!-- Hamburger Menu Button (Visible only on small screens) -->
+  <button class="menu-toggle" aria-label="Toggle navigation" (click)="toggleMobileMenu()">
+    <span class="menu-icon"></span>
+    <span class="menu-icon"></span>
+    <span class="menu-icon"></span>
+  </button>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <li><a routerLink="/donate" routerLinkActive="active">Donate</a></li>
+    <li><a routerLink="/stories" routerLinkActive="active">Stories</a></li>
+    <li><a routerLink="/get-involved" routerLinkActive="active">Get Involved</a></li>
+    <li><a routerLink="/results" routerLinkActive="active">Result and Impact</a></li>
+    <li><a routerLink="/contact" routerLinkActive="active">Contact Us</a></li>
+  </ul>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-menu" *ngIf="isMobileMenuOpen">
+    <button class="close-btn" (click)="toggleMobileMenu()" aria-label="Close menu">×</button>
+    <ul>
+      <li><a routerLink="/home" routerLinkActive="active" (click)="closeMobileMenu()">Home</a></li>
+      <li><a routerLink="/donate" routerLinkActive="active" (click)="closeMobileMenu()">Donate</a></li>
+      <li><a routerLink="/stories" routerLinkActive="active" (click)="closeMobileMenu()">Stories</a></li>
+      <li><a routerLink="/get-involved" routerLinkActive="active" (click)="closeMobileMenu()">Get Involved</a></li>
+      <li><a routerLink="/results" routerLinkActive="active" (click)="closeMobileMenu()">Result and Impact</a></li>
+      <li><a routerLink="/contact" routerLinkActive="active" (click)="closeMobileMenu()">Contact Us</a></li>
+    </ul>
+  </div>
+</nav>
