@@ -1,38 +1,390 @@
+// Base styles
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333; // Default text color
+  line-height: 1.6; // Improved readability
+  background: #eee; // Background color for the body
+}
+
 .background-image {
   background-image: url('photo.jpg'); // Ensure the path is correct
-  background-size: cover; // Cover the full area while keeping the aspect ratio
-  background-position: center; // Center the image
-  background-repeat: no-repeat; // Prevent repeating the image
-  width: 100%; // Use 100% to avoid overflow
-  min-height: 100vh; // Full viewport height
-  display: block; // Ensure it takes up space
-  overflow: hidden; // Hide any overflow
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+  overflow: hidden;
 
-  // Mobile responsiveness
   @media (max-width: 768px) {
-      min-height: 60vh; // Adjust min-height for tablets/smaller screens
+    min-height: 60vh;
   }
 
   @media (max-width: 480px) {
-      min-height: 40vh; // Further adjust for mobile devices
+    min-height: 40vh;
   }
 }
 
 .heading {
-  text-align: center; // Center the heading text
-  margin: 1rem 0; // Margin around the heading
-  font-size: 2.5rem; // Adjust font size as needed
-  color: #000; // Text color
-  position: relative; // Positioning context
-  z-index: 1; // Ensure heading appears above background
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 2.5rem;
+  color: #fff; // White for better visibility
+  position: relative;
+  z-index: 1;
 
-  // Mobile responsiveness
   @media (max-width: 768px) {
-      font-size: 1.8rem; // Adjust font size for smaller screens
-      margin: 0.5rem 0; // Reduce margin
+    font-size: 1.8rem;
+    margin: 0.5rem 0;
   }
 
   @media (max-width: 480px) {
-      font-size: 1.5rem; // Further adjust font size for mobile
+    font-size: 1.5rem;
   }
+}
+
+.mission-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px; // Rounded corners
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 1); // Change on hover
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333; // Dark gray color
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.gallery-section {
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333; // Dark gray color
+  }
+
+  .gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; // Space between images
+
+    img {
+      width: 200px; // Adjust width as needed
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s, box-shadow 0.3s; // Animation effect
+
+      &:hover {
+        transform: scale(1.05); // Zoom effect
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Shadow on hover
+      }
+    }
+  }
+}
+
+.quote-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(240, 240, 240, 0.9);
+  border-radius: 10px; // Rounded corners
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: rgba(240, 240, 240, 1);
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333; // Dark gray color
+  }
+
+  blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 1rem 0;
+    color: #555; // Darker gray for quote text
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-2px); // Lift effect on hover
+    }
+  }
+}
+
+.donation-section {
+  text-align: center;
+  padding: 2rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333; // Dark gray color
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  .donate-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    background-color: #4CAF50; // Green button color
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s; // Transition effects
+
+    &:hover {
+      background-color: #45a049; // Darker green on hover
+      transform: scale(1.05); // Slight zoom on hover
+    }
+  }
+}
+
+.contribution-section {
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(240, 240, 240, 0.9); // Light gray background
+  border: 1px solid #ccc; // Light gray border
+  border-radius: 10px; // Rounded corners
+  margin: 2rem auto; // Centered with margin
+  max-width: 900px; // Maximum width for better readability
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333; // Dark gray color for the heading
+  }
+
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #333; // Dark gray color for the text
+  }
+
+  .contribution-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .contribution-item {
+      background-color: #fff; // White background for items
+      border: 1px solid #ddd; // Light border
+      border-radius: 8px; // Rounded corners
+      margin: 1rem;
+      padding: 1.5rem;
+      width: calc(30% - 2rem); // Adjust width for three items per row
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); // Light shadow effect
+      transition: transform 0.2s, box-shadow 0.3s; // Animation on hover
+
+      &:hover {
+        transform: scale(1.05); // Slight zoom effect on hover
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); // Enhanced shadow
+      }
+
+      img {
+        width: 50px; // Icon size
+        height: 50px; // Icon size
+        margin-bottom: 0.5rem; // Spacing below the icon
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        color: #333; // Dark gray color for item headings
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #555; // Darker gray for item descriptions
+      }
+    }
+  }
+  p {
+    margin-top: 1rem; // Add some space after contribution list
+    font-size: 1rem; // Make the font size smaller for clarity
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .contribution-item {
+    width: calc(45% - 2rem); // Adjust for two items per row
+  }
+
+  .image-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // Two columns on medium screens
+    gap: 10px; // Space between images
+  }
+}
+
+@media (max-width: 480px) {
+  .contribution-item {
+    width: calc(100% - 2rem); // Full width for mobile
+  }
+
+  .gallery img {
+    width: 100%; // Full width for images on mobile
+    max-width: 200px; // Max width for images
+  }
+
+  .image-section {
+    display: grid;
+    grid-template-columns: 1fr; // Single column on small screens
+    gap: 10px; // Space between images
+  }
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh; // Adjusted height for better spacing
+  padding: 0 10px;
+  background-color: #fff;
+  opacity: 0; // Start hidden
+  transform: translateY(20px); // Slightly moved down
+  transition: opacity 1s ease, transform 1s ease;
+  margin: 0; // Remove any default margin
+
+  &.visible {
+    opacity: 1; // Make visible when class is added
+    transform: translateY(0); // Slide up
+  }
+
+  .hero-content {
+    display: flex;
+    flex-direction: column; // Changed to column for better stacking
+    align-items: center; // Center horizontally
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; // Maximum width for larger screens
+    gap: 20px;
+    padding: 20px;
+    text-align: center; // Center text content
+    margin: 0 auto; // Center horizontally
+
+    .text-content {
+      flex: 1;
+      padding: 20px;
+      max-width: 900px; // Increased max width for better readability
+
+      h1 {
+        font-size: 2.5rem; // Adjust font size for better visibility
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: bold;
+      }
+
+      p {
+        font-size: 1.2rem; // Slightly larger font for better readability
+        color: #666;
+        line-height: 1.6; // Improved readability
+      }
+    }
+  }
+
+  // Responsive design adjustments
+  @media (max-width: 992px) {
+    .hero-content {
+      flex-direction: column; // Stack content on smaller screens
+      text-align: center; // Center text content on smaller screens
+    }
+  }
+
+  @media (max-width: 768px) {
+    .text-content h1 {
+      font-size: 2rem; // Adjust font size for smaller screens
+    }
+
+    .text-content p {
+      font-size: 1rem; // Adjust font size for smaller screens
+    }
+  }
+
+  @media (max-width: 480px) {
+    .text-content h1 {
+      font-size: 1.5rem; // Further reduce font size for very small screens
+    }
+
+    .text-content p {
+      font-size: 0.9rem; // Further reduce font size for very small screens
+    }
+  }
+}
+
+.image-section {
+  width: 100%; /* Full width */
+  max-width: 1200px; /* Optional: set a max width for larger screens */
+  margin: 0 auto; /* Center the section */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal columns */
+  gap: 10px; /* Space between images */
+  padding: 20px; /* Padding around the gallery */
+  animation: fadeIn 0.5s; /* Animation on load */
+
+  img {
+    width: 100%; /* Fill the column */
+    height: 200px; /* Fixed height for each image */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Optional: shadow */
+    transition: transform 0.3s; /* Animation for zoom effect */
+
+    &:hover {
+      transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+  }
+}
+
+/* Animation */
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* Adjust visibility */
+.image-section img.hidden {
+  animation: fadeOut 1s forwards; /* Fade out */
+}
+
+.image-section img.visible {
+  animation: fadeIn 1s forwards; /* Fade in */
+}
+
+/* Adjust visibility */
+.image-section img:nth-child(1) {
+  animation-delay: 0s; /* No delay for the first image */
+}
+
+.image-section img:nth-child(2) {
+  animation-delay: 1s; /* Delay for the second image */
+}
+
+.image-section img:nth-child(3) {
+  animation-delay: 2s; /* Delay for the third image */
 }

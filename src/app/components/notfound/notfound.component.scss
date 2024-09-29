@@ -1,0 +1,26 @@
+$primary-color: #4CAF50; // Change as needed
+$text-color: #333;
+$background-color: #f9f9f9;
+
+.coming-soon {
+  background-color: $background-color;
+  text-align: center;
+  padding: 50px 20px;
+  border: 1px solid lighten($primary-color, 30%);
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  
+  .content {
+    h1 {
+      font-size: 2.5rem;
+      color: $primary-color;
+      margin-bottom: 15px;
+    }
+    
+    p {
+      font-size: 1.2rem;
+      color: $text-color;
+      line-height: 1.5;
+    }
+  }
+}
