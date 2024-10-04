@@ -17,55 +17,52 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 0;
-    margin-bottom: 1rem; // Add margin for spacing
+    margin-bottom: 1rem;
 
     .social-icons {
-        display: flex;
-        gap: 1rem;
+      display: flex;
+      gap: 1rem;
 
-        a {
-            color: #e63946; // A softer red color
-            font-size: 1.2rem; // Keep the original size
-            transition: transform 0.3s, color 0.3s; // Smooth transition for hover effects
+      a {
+        color: #e63946;
+        font-size: 1.2rem;
+        transition: transform 0.3s, color 0.3s;
 
-            &:hover {
-                color: #d62839; // Darker shade of red on hover
-                transform: scale(1.1); // Slightly enlarge on hover
-            }
+        &:hover {
+          color: #d62839;
+          transform: scale(1.1);
         }
+      }
     }
 
     .contact-info {
-        span {
-            margin-left: 1rem; // Space between contact info
-            font-size: 0.9rem; // Keep the original size
-            color: #e63946; // Match the contact info color with the icon color
-            transition: color 0.3s; // Smooth transition for hover effect
+      span {
+        margin-left: 1rem;
+        font-size: 0.9rem;
+        color: #e63946;
+        transition: color 0.3s;
 
-            &:hover {
-                color: #d62839; // Darker shade of red on hover
-            }
+        &:hover {
+          color: #d62839;
         }
+      }
     }
-}
-
+  }
 
   .logo-container {
     margin-bottom: 1rem;
-    transition: opacity 0.3s, margin-bottom 0.3s, visibility 0.3s; // Include visibility
+    transition: opacity 0.3s, margin-bottom 0.3s, visibility 0.3s;
 
     &.hidden {
-      opacity: 0; // Fade out
-      margin-bottom: 0; // Remove space
-      visibility: hidden; // Prevent interaction and layout shift
-      height: 0; // Prevent height occupancy
+      opacity: 0;
+      margin-bottom: 0;
+      visibility: hidden;
+      height: 0;
     }
 
     .logo {
-      width: 200px; // Increase logo size
+      width: 150px; // Adjust logo size for better responsiveness
       height: auto;
-      position: relative; // Ensure positioning is relative for overlap
-      top: -2rem; // Adjust top position to fine-tune overlap
     }
   }
 
@@ -82,14 +79,10 @@ nav {
       background-color: #000;
       margin: 4px 0;
       transition: background-color 0.3s;
-
-      &:nth-child(2) {
-        width: 30px;
-      }
     }
 
     &:hover .menu-icon {
-      background-color: #333; // Darker on hover
+      background-color: #333;
     }
   }
 
@@ -105,7 +98,7 @@ nav {
     li {
       a {
         color: #000;
-        text-decoration: none; // Remove underline
+        text-decoration: none;
         font-size: 1rem;
         padding: 0.5rem 1rem;
         border-radius: 4px;
@@ -119,17 +112,14 @@ nav {
           left: 0;
           width: 0;
           height: 2px;
-          background-color: #007bff; // Attractive link hover color
+          background-color: #007bff;
           transition: width 0.3s;
         }
 
         &:hover,
         &.active {
-          color: #007bff; // Attractive color on hover
-          background-color: rgba(0, 123, 255, 0.1); // Light background on hover
-          // &::after {
-          //   // width: 100%; // Remove underline effect
-          // }
+          color: #007bff;
+          background-color: rgba(0, 123, 255, 0.1);
         }
       }
     }
@@ -138,24 +128,26 @@ nav {
   .mobile-menu {
     display: none; // Hidden by default
     position: absolute;
-    top: 100%; // Below the navbar
-    left: 0;
-    width: 100%;
-    background: #fff;
+    top: 100%;
+    // left: 0;
+    // width: 100%;
+    background: rgb(255, 255, 255);
     z-index: 1000;
     padding: 1rem;
     
     ul {
+      padding-right: 50px;
       display: flex;
       flex-direction: column;
       gap: 1rem;
+      list-style: none;
 
       li {
-        width: 100%; // Full width for mobile items
+        width: 100%;
         a {
-          display: block; // Block for better padding
+          display: block;
           color: #000;
-          text-decoration: none; // Remove underline
+          text-decoration: none;
           font-size: 1.2rem;
           padding: 0.75rem 1rem;
           border-radius: 4px;
@@ -163,7 +155,7 @@ nav {
 
           &:hover,
           &.active {
-            background-color: #f0f0f0; // Light background on hover
+            background-color: #f0f0f0;
             color: #000;
           }
         }
@@ -182,7 +174,7 @@ nav {
       transition: color 0.3s;
 
       &:hover {
-        color: #333; // Darker on hover
+        color: #333;
       }
     }
   }
@@ -203,21 +195,25 @@ nav {
     }
   }
 
-  &.scrolled {
-    .logo-container {
-      opacity: 0; // Make logo invisible
-      margin-bottom: 0; // Remove margin
-      visibility: hidden; // Prevent interaction
-    }
-
-    .nav-links {
-      margin-top: 1rem; // Add margin to shift nav links down slightly when scrolled
-    }
-  }
-
   @media (min-width: 769px) {
     .mobile-menu {
       display: none; // Hide mobile menu on larger screens
+    }
+
+    .nav-links {
+      display: flex; // Ensure links are displayed on larger screens
+    }
+  }
+
+  &.scrolled {
+    .logo-container {
+      opacity: 0;
+      margin-bottom: 0;
+      visibility: hidden;
+    }
+
+    .nav-links {
+      margin-top: 1rem;
     }
   }
 }
