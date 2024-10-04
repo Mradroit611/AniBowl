@@ -1,7 +1,57 @@
-<section class="coming-soon">
-    <div class="content">
-      <h1>Coming Soon!</h1>
-      <p>Our team is hard at work developing this page. Stay tuned for updates!</p>
-    </div>
-  </section>
+<!-- results.component.html -->
+<div class="results">
+  <h1>Results and Impact</h1>
   
+  <div class="intro">
+    <p>
+      Thank you for your support! Our mission to feed street animals is just getting started. 
+      We’re currently collecting donations, and we’ll be sharing our results and impact soon!
+    </p>
+  </div>
+
+  <div class="results-summary">
+    <h2>Current Status</h2>
+    <p>Stay tuned for updates on our feeding missions!</p>
+    
+    <div class="stats">
+      <div class="stat">
+        <h3>Total Animals Fed</h3>
+        <p>{{ totalAnimalsFed }}</p>
+      </div>
+      <div class="stat">
+        <h3>Total Bowls Filled</h3>
+        <p>{{ totalBowlsFilled }}</p>
+      </div>
+      <div class="stat">
+        <h3>Locations Covered</h3>
+        <p>{{ locationsCovered }}</p>
+      </div>
+      <div class="stat">
+        <h3>Volunteer Hours Contributed</h3>
+        <p>{{ volunteerHours }}</p>
+      </div>
+      <div class="stat">
+        <h3>Stories Shared</h3>
+        <p>{{ storiesShared }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="impact-section">
+    <h2>The Impact of Your Contributions</h2>
+    <p>
+      Your donations and volunteer efforts will have a lasting impact on the lives of street animals. 
+      Once our feeding missions commence, we’ll share heartfelt stories and testimonials from volunteers 
+      and community members who are directly involved. 
+    </p>
+    <p>
+      Together, we can create a community of compassion and care. 
+      Check back soon to see how you’ve made a difference!
+    </p>
+  </div>
+
+  <div class="call-to-action">
+    <h2>Get Involved!</h2>
+    <p>If you’d like to volunteer or contribute, please visit our <a routerLink="/get-involved">Get Involved</a> page.</p>
+  </div>
+</div>

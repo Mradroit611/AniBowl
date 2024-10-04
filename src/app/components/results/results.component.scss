@@ -1,26 +1,104 @@
-$primary-color: #4CAF50; // Change as needed
-$text-color: #333;
-$background-color: #f9f9f9;
+/* results.component.scss */
 
-.coming-soon {
-  background-color: $background-color;
+$primary-color: #4CAF50;  // Main color
+$secondary-color: #fff;    // Background color
+$accent-color: #f9f9f9;    // Card background color
+$text-color: #333;          // Text color
+$border-radius: 8px;        // Border radius for cards
+$transition-duration: 0.3s;  // Transition duration for hover effects
+
+.results {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 50px auto; 
   text-align: center;
-  padding: 50px 20px;
-  border: 1px solid lighten($primary-color, 30%);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: $secondary-color;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   
-  .content {
-    h1 {
-      font-size: 2.5rem;
-      color: $primary-color;
-      margin-bottom: 15px;
+  // Responsive padding for smaller screens
+  @media (max-width: 600px) {
+    padding: 20px 10px;
+  }
+}
+
+.intro {
+  margin-bottom: 30px;
+  font-size: 1.2rem;
+  color: $text-color;
+}
+
+.results-summary {
+  margin: 40px 0; // Top and bottom margins
+
+  h2 {
+    margin-bottom: 20px;
+    color: $primary-color;
+    font-size: 1.8rem;
+  }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .stat {
+      background-color: $accent-color;
+      border: 1px solid lighten($accent-color, 10%);
+      border-radius: $border-radius;
+      padding: 20px;
+      margin: 10px;
+      flex: 1 1 180px; // Flexbox for responsiveness
+      max-width: 220px; // Limit max width for cards
+      transition: transform $transition-duration;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      h3 {
+        margin: 0;
+        color: $primary-color;
+      }
+
+      p {
+        font-size: 1.5rem;
+        color: $text-color;
+        font-weight: bold;
+      }
     }
-    
-    p {
-      font-size: 1.2rem;
-      color: $text-color;
-      line-height: 1.5;
+  }
+}
+
+.impact-section {
+  margin: 40px 0; // Top and bottom margins
+  
+  h2 {
+    margin-bottom: 20px;
+    color: $primary-color;
+    font-size: 1.8rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: $text-color;
+    line-height: 1.6;
+  }
+}
+
+.call-to-action {
+  margin: 30px 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+    transition: color $transition-duration;
+
+    &:hover {
+      color: darken($primary-color, 10%);
     }
   }
 }
