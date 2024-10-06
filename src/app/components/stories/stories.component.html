@@ -1,7 +1,38 @@
-<section class="coming-soon">
-    <div class="content">
-      <h1>Coming Soon!</h1>
-      <p>Our team is hard at work developing this page. Stay tuned for updates!</p>
-    </div>
-  </section>
+<div class="stories-container">
+  <h2>Stories of Kindness</h2>
   
+  <p class="intro">
+    Share your stories with street animals or fill their empty bowls. 
+    Read other people's heartfelt stories and the happiness of feeding street animals. 
+    Just scroll up and enjoy!
+  </p>
+
+  <button class="share-button" (click)="openStoryForm()">Share Your Story</button>
+
+  <div class="story-cards">
+    <div class="story-item" *ngFor="let story of paginatedStories">
+      <h3>{{ story.title }}</h3>
+      <h4>by {{ story.name }}</h4>
+      <img [src]="story.image" alt="{{ story.title }}" class="story-image" />
+      <p>{{ story.story }}</p>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button (click)="prevPage()" [disabled]="currentPage === 0">Previous</button>
+    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Next</button>
+  </div>
+</div>
+
+<!-- Popup Form -->
+<div class="modal" *ngIf="isFormOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeStoryForm()">&times;</span>
+    <h3>Share Your Story</h3>
+    <input type="text" [(ngModel)]="newStory.title" placeholder="Title" />
+    <input type="text" [(ngModel)]="newStory.name" placeholder="Your Name" />
+    <textarea [(ngModel)]="newStory.story" placeholder="Write your story here..."></textarea>
+    <button (click)="addStory()">Submit Story</button>
+  </div>
+</div>

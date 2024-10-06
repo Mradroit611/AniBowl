@@ -1,7 +1,128 @@
-<section class="coming-soon">
-    <div class="content">
-      <h1>Coming Soon!</h1>
-      <p>Our team is hard at work developing this page. Stay tuned for updates!</p>
+<div class="get-involved">
+  <img src="involve.png" alt="Join Our Mission" class="header-image" />
+
+  <h2>Join Our Mission to Feed the Needy</h2>
+
+  <div class="countdown">
+    <h3>Join Us in the Next <span id="daysLeft">{{ timeLeft.days }}</span> Days!</h3>
+    <div class="timer">
+      <p>Time Left: {{ timeLeft.days }}d {{ timeLeft.hours }}h {{ timeLeft.minutes }}m {{ timeLeft.seconds }}s</p>
     </div>
-  </section>
+    <p *ngIf="isFormDisabled" class="form-closed-message">Form submissions will be closed after the countdown ends.</p>
+  </div>
+
+  <div class="impact-section">
+    <div class="impact-content">
+      <p>Every meal counts. Your involvement can change lives!</p>
+      <p>Your contribution can fill multiple empty bowls! You can share the location of empty bowls near you or any places you know. If you want to fill these empty bowls with us, join us by sharing your information. We will contact you after the countdown ends to reach as many people as possible who want to join us. Remember, joining doesn't mean you have to be physically present; you can also share your stories and what you've done so that we can post on our site to encourage others.</p>
+    </div>
+  </div>
+
+
+  <div class="forms-container">
+    <div class="form-section location-section">
+      <h3>Animal Locations Shared:</h3>
+      <ul>
+        <li *ngFor="let location of submittedLocations">
+          <strong>Location:</strong> {{ location.location }}<br>
+          <strong>Animals:</strong> {{ location.animals }}<br>
+          <strong>Time:</strong> {{ location.time }}
+        </li>
+      </ul>
+      <button class="small-button" (click)="openLocationModal()">Share Location</button>
+    </div>
+
+    <div class="form-section volunteer-section">
+      <h3>Our Wonderful Volunteers:</h3>
+      <ul>
+        <li *ngFor="let volunteer of submittedVolunteers">
+          <strong>Name:</strong> {{ volunteer.name }}<br>
+          <strong>Contact:</strong> {{ volunteer.contact.substring(0, 3) }}XXXXX<br>
+          <strong>Address:</strong> {{ volunteer.address.substring(0, 3) }}...<br>
+          <strong>Availability:</strong> {{ volunteer.startTime }} to {{ volunteer.endTime }}
+        </li>
+      </ul>
+      <button class="small-button" (click)="openVolunteerModal()">Join the Cause</button>
+    </div>
+  </div>
+
+  <div class="thank-you-message">
+    <p>Your kindness matters!</p>
+  </div>
+
+  <!-- Modal for Share Location -->
+  <div class="modal" *ngIf="isLocationModalOpen" (click)="closeLocationModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeLocationModal()">&times;</span>
+      <h3>Share Locations of Street Animals</h3>
+<form (submit)="submitLocation(); closeLocationModal()" #locationForm="ngForm">
+  <label>Where can we find animals?</label>
+  <input type="text" placeholder="Location" [(ngModel)]="locationData.location" name="location" required />
+  <div *ngIf="locationForm.controls['location']?.invalid && (locationForm.controls['location']?.touched || locationForm.controls['location']?.dirty)" class="error-message">
+    Location is required.
+  </div>
   
+  <label>What animals are present?</label>
+  <input type="text" placeholder="Animals Found" [(ngModel)]="locationData.animals" name="animals" required />
+  <div *ngIf="locationForm.controls['animals']?.invalid && (locationForm.controls['animals']?.touched || locationForm.controls['animals']?.dirty)" class="error-message">
+    Animals are required.
+  </div>
+  
+  <label>When can they be found?</label>
+  <input type="time" [(ngModel)]="locationData.time" name="time" required />
+  <div *ngIf="locationForm.controls['time']?.invalid && (locationForm.controls['time']?.touched || locationForm.controls['time']?.dirty)" class="error-message">
+    Time is required.
+  </div>
+  
+  <button class="form-button" type="submit" [disabled]="isFormDisabled || locationForm.invalid">Submit Location</button>
+</form>
+
+
+    </div>
+  </div>
+
+  <!-- Modal for Join the Cause -->
+  <div class="modal" *ngIf="isVolunteerModalOpen" (click)="closeVolunteerModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <span class="close" (click)="closeVolunteerModal()">&times;</span>
+      <h3>Become a Volunteer to Feed Animals</h3>
+<form (submit)="submitVolunteer(); closeVolunteerModal()" #volunteerForm="ngForm">
+  <label>Your Name</label>
+  <input type="text" placeholder="Name" [(ngModel)]="volunteerData.name" name="name" required />
+  <div *ngIf="volunteerForm.controls['name']?.invalid && (volunteerForm.controls['name']?.touched || volunteerForm.controls['name']?.dirty)" class="error-message">
+    Name is required.
+  </div>
+  
+  <label>Contact Number</label>
+  <input type="text" placeholder="Contact Number" [(ngModel)]="volunteerData.contact" name="contact" required pattern="^[0-9]{10}$" />
+  <div *ngIf="volunteerForm.controls['contact']?.invalid && (volunteerForm.controls['contact']?.touched || volunteerForm.controls['contact']?.dirty)">
+    <ng-container *ngIf="volunteerForm.controls['contact']?.errors?.['required']" >Contact number is required.</ng-container>
+    <ng-container *ngIf="volunteerForm.controls['contact']?.errors?.['pattern']">Contact number must be 10 digits.</ng-container>
+  </div>
+  
+  <label>Your Address</label>
+  <input type="text" placeholder="Address" [(ngModel)]="volunteerData.address" name="address" required />
+  <div *ngIf="volunteerForm.controls['address']?.invalid && (volunteerForm.controls['address']?.touched || volunteerForm.controls['address']?.dirty)" class="error-message">
+    Address is required.
+  </div>
+  
+  <div class="time-slot">
+    <label>Available Time Slot:</label>
+    <input type="time" [(ngModel)]="volunteerData.startTime" name="startTime" required />
+    <span>to</span>
+    <input type="time" [(ngModel)]="volunteerData.endTime" name="endTime" required />
+  </div>
+  
+  <button class="form-button" type="submit" [disabled]="isFormDisabled || volunteerForm.invalid">Join the Cause</button>
+</form>
+
+
+    </div>
+  </div>
+  <div class="contact-section">
+    <h3>Contact Us</h3>
+    <p>If you have any questions or would like to get involved, feel free to reach out!</p>
+    <p><strong>Email:</strong> anibowl&#64;gmail.com</p>
+  <p><strong>Phone:</strong> +91 986-898-0710</p>
+  </div>
+</div>

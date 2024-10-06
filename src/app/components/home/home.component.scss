@@ -172,6 +172,12 @@ body {
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s; // Transition effects
 
+    a{
+      text-decoration: none;
+    list-style: none;
+    color: white;
+    }
+
     &:hover {
       background-color: #45a049; // Darker green on hover
       transform: scale(1.05); // Slight zoom on hover
