@@ -5,13 +5,14 @@
   import { FooterComponent } from './components/footer/footer.component';
   import {initializeApp} from "firebase/app"
   import { firebaseConfig } from '../../firebaseConfig';
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 
 
 
   @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, HomeComponent, NavbarComponent, FooterComponent],
+    imports: [RouterOutlet, HomeComponent, NavbarComponent, FooterComponent, ChatbotComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
   })

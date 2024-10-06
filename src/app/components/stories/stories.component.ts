@@ -1,4 +1,4 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as storiesData from '../../../assets/stories.json';
 import { Story } from '../../models/story';
 import { CommonModule } from '@angular/common';
@@ -15,7 +15,7 @@ export class StoriesComponent implements OnInit {
   stories: Story[] = (storiesData as any).default; // Cast to any to avoid TypeScript errors
   newStory: { title: string; name: string; story: string; image?: string } = { title: '', name: '', story: '' };
   currentPage: number = 0;
-  storiesPerPage: number = 1; // Show 1 story per page
+  storiesPerPage: number = 1;
   isFormOpen: boolean = false;
 
   get totalPages(): number {
@@ -57,15 +57,6 @@ export class StoriesComponent implements OnInit {
   nextPage(): void {
     if (this.currentPage < this.totalPages - 1) {
       this.currentPage++;
-    }
-  }
-
-  // Close the modal if the user clicks outside of it
-  @HostListener('document:click', ['$event'])
-  onClick(event: MouseEvent): void {
-    const modalContent = document.querySelector('.modal-content');
-    if (this.isFormOpen && modalContent && !modalContent.contains(event.target as Node)) {
-      this.closeStoryForm();
     }
   }
 }

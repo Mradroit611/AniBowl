@@ -1,26 +1,51 @@
-$primary-color: #4CAF50; // Change as needed
-$text-color: #333;
-$background-color: #f9f9f9;
+.donate-page {
+  padding: 20px; // General padding
+  text-align: center; // Center text
 
-.coming-soon {
-  background-color: $background-color;
-  text-align: center;
-  padding: 50px 20px;
-  border: 1px solid lighten($primary-color, 30%);
-  border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  
-  .content {
-    h1 {
-      font-size: 2.5rem;
-      color: $primary-color;
-      margin-bottom: 15px;
+  h1 {
+    color: #333; // Dark text for the main heading
+    margin-bottom: 20px; // Space below heading
+  }
+
+  .development-notice {
+    background-color: #f9f9f9; // Light background
+    border: 1px solid #ddd; // Light border
+    border-radius: 8px; // Rounded corners
+    padding: 20px; // Inner padding
+    margin: 20px 0; // Margin above and below
+
+    h2 {
+      color: #d9534f; // Highlight color for the subheading
+      margin-bottom: 15px; // Space below subheading
     }
-    
+
     p {
-      font-size: 1.2rem;
-      color: $text-color;
-      line-height: 1.5;
+      color: #555; // Gray text for paragraphs
+      line-height: 1.5; // Spacing between lines
+      margin-bottom: 10px; // Space below paragraphs
+    }
+
+    // Responsive styles
+    @media (max-width: 600px) {
+      padding: 15px; // Reduce padding on small screens
+
+      h2 {
+        font-size: 1.5rem; // Smaller subheading
+      }
+
+      p {
+        font-size: 0.9rem; // Smaller paragraph text
+      }
+    }
+
+    @media (max-width: 400px) {
+      h2 {
+        font-size: 1.3rem; // Even smaller on very small screens
+      }
+
+      p {
+        font-size: 0.85rem; // Smaller paragraph text
+      }
     }
   }
 }

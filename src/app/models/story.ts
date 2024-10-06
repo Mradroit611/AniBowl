@@ -1,7 +1,6 @@
 export interface Story {
-    name: string;
-    title: string;
-    image: string;
-    story: string;
-  }
-   
+  name: string;
+  image: string;
+  title: string;
+  story: string;
+}

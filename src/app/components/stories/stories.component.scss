@@ -228,3 +228,70 @@
     }
   }
 }
+
+.development-notice {
+  background-color: #f9f9f9; // Light background for emphasis
+  border: 1px solid #ddd; // Light border
+  border-radius: 8px; // Rounded corners
+  padding: 20px; // Padding around the text
+  margin: 20px 0; // Margin above and below the section
+  text-align: center; // Centered text
+
+  h2 {
+    color: #333; // Darker text for the heading
+    margin-bottom: 10px; // Space below the heading
+  }
+
+  p {
+    color: #555; // Medium gray for paragraph text
+    line-height: 1.5; // Spacing between lines
+    margin-bottom: 15px; // Space below paragraphs
+  }
+
+  ul {
+    list-style: none; // Remove bullet points
+    padding: 0; // Remove default padding
+
+    li {
+      margin: 5px 0; // Space between list items
+
+      a {
+        color: #007bff; // Link color
+        text-decoration: none; // Remove underline
+
+        &:hover {
+          text-decoration: underline; // Underline on hover
+        }
+      }
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 600px) {
+    padding: 15px; // Reduce padding on smaller screens
+
+    h2 {
+      font-size: 1.5rem; // Slightly smaller heading on mobile
+    }
+
+    p {
+      font-size: 0.9rem; // Smaller paragraph text on mobile
+    }
+  }
+
+  @media (max-width: 400px) {
+    h2 {
+      font-size: 1.3rem; // Even smaller heading on very small screens
+    }
+
+    p {
+      font-size: 0.85rem; // Smaller paragraph text
+    }
+
+    ul {
+      li {
+        margin: 4px 0; // Reduce margin for list items
+      }
+    }
+  }
+}

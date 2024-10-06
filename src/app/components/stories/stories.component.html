@@ -7,7 +7,7 @@
     Just scroll up and enjoy!
   </p>
 
-  <button class="share-button" (click)="openStoryForm()">Share Your Story</button>
+  <button class="share-button" (click)="openStoryForm() "disabled>Share Your Story</button>
 
   <div class="story-cards">
     <div class="story-item" *ngFor="let story of paginatedStories">
@@ -35,4 +35,19 @@
     <textarea [(ngModel)]="newStory.story" placeholder="Write your story here..."></textarea>
     <button (click)="addStory()">Submit Story</button>
   </div>
+</div>
+
+
+<div class="development-notice">
+  <h2>Website Under Development</h2>
+  <p>
+    Our website is currently under development. In just 2-3 days, it will be fully complete, and you'll be able to post your stories.
+  </p>
+  <p>
+    Until then, feel free to share your stories with us by contacting us via:
+  </p>
+  <ul>
+    <li><strong>Email:</strong> <a href="mailto:anibowl.street@gmail.com">anibowl.street&#64;gmail.com</a></li>
+    <li><strong>WhatsApp:</strong> <a href="https://wa.me/919868980710">+91 986-898-0710</a></li>
+  </ul>
 </div>
